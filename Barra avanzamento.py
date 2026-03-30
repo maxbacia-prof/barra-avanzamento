@@ -11,6 +11,10 @@ st.write("Monitoraggio in tempo reale delle competenze acquisite dalla classe 2E
 # 1. Connessione a Google Sheets
 conn = st.connection("gsheets", type=GSheetsConnection)
 
+if st.button('🔄 Aggiorna Progressi'):
+    st.cache_data.clear()
+    st.rerun()
+
 try:
     # Lettura dati
     df = conn.read(ttl="1m")
